@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Nutricional</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        table {
+          border-collapse: collapse;
+        }
+        th,
+        td {
+          border: 2px solid black;
+          padding: 8px;
+        }
+      </style>
+</head>
+<body>
+
+    <div id="container">
+
+    <div class="formulario">
+        <h1>Informações Nutricional</h1>
+        <form action="formulario.php" method="get">
+
+            <label for="alimento">Alimento:</label>
+            <input type="text" name="alimento" id="alimento" placeholder="Digite o tipo de alimento" /><br><br>
+
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" name="quantidade" id="quantidade" placeholder=" Digite a quantidade" /><br><br>
+
+            <label for="calorias">Calorias:</label>
+            <input type="number" name="calorias" id="calorias" placeholder=" Digite o valor nutricional em calorias" /><br><br>
+
+            <h2>Informações Nutricionais</h2>
+            <table id="tabela">
+              <tr>
+                <th>Alimento</th>
+                <th>Quantidade</th>
+                <th>Calorias</th>
+              </tr>
+            </table>
+
+            <script>
+  
+                function salvarInformacao() {
+                  
+                    var alimento = document.getElementById("alimento").value;
+                    var calorias = document.getElementById("calorias").value;
+                    var quantidade = document.getElementById("quantidade").value;
+                    var tabela = document.getElementById("tabela");
+          
+                    var newRow = tabela.insertRow();
+                    var cell1 = newRow.insertCell(0);
+                    cell1.innerHTML = alimento;
+                    var cell2 = newRow.insertCell(1);
+                    cell2.innerHTML = calorias;
+                    var cell3 = newRow.insertCell(2);
+                    cell3.innerHTML = quantidade;
+                }
+              </script>
+        
+            <p>Características:</p><br>
+            
+            
+            <input type="radio" id="fruta" name="fruta" value="fruta">
+            <label for="text">Frutas</label><br>
+
+            <input type="radio" id="legumes" name="legumes" value="legumes">
+            <label for="text">Legumes</label><br>
+
+            <input type="radio" id="graos" name="graos" value="graos">
+            <label for="text">Grãos</label><br>
+
+            <input type="radio" id="vegetais" name="vegetais" value="vegetais">
+            <label for="text">Vegetais</label><br><br><br>
+
+            <button type="button" onclick="salvarInformacao()">Salvar</button>
+
+            <button type="reset" onclick="limparInformacao()">reset</button>
+
+        </div>
+            
+
+
+
+            
+        </form>
+    </div>
+    </body>
+    
+</html>
